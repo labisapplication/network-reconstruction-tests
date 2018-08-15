@@ -21,10 +21,10 @@ tmp <- data - apply(data, 1, min, na.rm = TRUE)
 data <- tmp / apply(tmp, 1, max, na.rm = TRUE)
 
 # Run IOTA
-a <- IOTA(data, method = 'sqrt')
+a <- IOTAsigned(data, method = 'sqrt')
 diag(a) <- 0  # Ignore selfcorrelation
 
-threshold <- .93
+threshold <- .85
 
 up.regulated <- graph.adjacency(a > threshold)
 down.regulated <- graph.adjacency(a < -threshold)
